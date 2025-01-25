@@ -42,4 +42,8 @@ public class TransactionService {
         return listTrasaction;
     }
 
+    public void removeAllTransactions() {
+        listTrasaction.clear();
+    }
+
 }

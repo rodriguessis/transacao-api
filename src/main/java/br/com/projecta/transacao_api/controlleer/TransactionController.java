@@ -28,4 +28,10 @@ public class TransactionController {
         return ResponseEntity.ok(transactionService.allTrasactions());
     }
 
+    @DeleteMapping
+    public ResponseEntity<Void> removeTransactions() {
+        transactionService.removeAllTransactions();
+        return ResponseEntity.ok().build();
+    }
+
 }
