@@ -20,5 +20,22 @@ public class TransactionService {
     private static final Logger log = LoggerFactory.getLogger(TransactionService.class);
     private final List<TransactionRequestDTO> listTrasaction = new ArrayList<>();
 
+    public void save( TransactionRequestDTO transaction ) {
+
+        if ( transaction.hourTime().isAfter(OffsetDateTime.now()) ) {
+            log.error("Data incorreta para a Transação");
+            throw new UnprocessableEntity("Data incorreta para a Transação");
+        }
+        if ( transaction.value() <= 0 ) {
+            log.error("O valor deve ser maior que 0");
+            throw new UnprocessableEntity("O valor deve ser maior que 0");
+        }
+
+        log.info("add " + transaction.toString());
+        listTrasaction.add( transaction );
+
+        System.out.println("adiconou o item");
+
+    }
 
 }
