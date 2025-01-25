@@ -38,4 +38,8 @@ public class TransactionService {
 
     }
 
+    public List<TransactionRequestDTO> allTrasactions() {
+        return listTrasaction;
+    }
+
 }
