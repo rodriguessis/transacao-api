@@ -1,4 +1,4 @@
-package br.com.projecta.transacao_api.controlleer.dtos;
+package br.com.projecta.transacao_api.controller.dtos;
 
 import java.time.OffsetDateTime;
 

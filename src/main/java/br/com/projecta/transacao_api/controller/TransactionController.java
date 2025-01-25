@@ -1,21 +1,23 @@
-package br.com.projecta.transacao_api.controlleer;
+package br.com.projecta.transacao_api.controller;
 
-import br.com.projecta.transacao_api.controlleer.dtos.TransactionRequestDTO;
+import br.com.projecta.transacao_api.controller.dtos.TransactionRequestDTO;
 import br.com.projecta.transacao_api.services.TransactionService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/transaction")
 public class TransactionController {
 
-    private final TransactionService transactionService = new TransactionService();
+    private final TransactionService transactionService;
+
+    public TransactionController(TransactionService transactionService) {
+        this.transactionService = transactionService;
+    }
 
     @PostMapping
     public ResponseEntity<Void> addTransaciton(@RequestBody TransactionRequestDTO trasaction ) {
