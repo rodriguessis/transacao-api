@@ -30,9 +30,6 @@ public class TransactionService {
 
         log.info("add " + transaction.toString());
         listTrasaction.add( transaction );
-
-        System.out.println("adiconou o item");
-
     }
 
     public List<TransactionRequestDTO> allTrasactions() {
