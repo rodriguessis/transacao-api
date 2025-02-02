@@ -10,15 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TransactionServiceTest {
 
-    private final TransactionService transactionService;
-
-    TransactionServiceTest(TransactionService transactionService) {
-        this.transactionService = transactionService;
-    }
-
     @Test
     @DisplayName("Deve conseguir adicionar uma transação")
     void save() {
+
+        var transactionService = new TransactionService();
         var dao = new TransactionRequestDTO(1.0, OffsetDateTime.now());
         transactionService.save(dao);
 
@@ -28,6 +24,7 @@ class TransactionServiceTest {
         assertTrue(listResponse.size() == 1);
         assertTrue(transactionResponse.value() == dao.value());
         assertTrue(transactionResponse.hourTime() == dao.hourTime());
+
 
     }
 }
